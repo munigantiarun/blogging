@@ -1,0 +1,36 @@
+{% extends 'blogg/base.html' %}
+
+{% block content %}
+        
+
+ <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+          <div style="padding:8px">
+            <a href="{% url 'blog-list' %}" class="btn btn-secondary btn-sm" >&larr; Back to Lists</a><br>
+          </div>
+
+        <!-- Blog Post -->
+        <div class="card text-white bg-dark mb-4">
+          <!-- <img class="card-img-top" src="http://placehold.it/750x350" alt="Card image cap"> -->
+          <div class="card-body">
+            <h2 class="card-title" style="font-family: 'Raleway', sans-serif;font-weight: 600; line-height: 1.2;" >{{object.entry_title}}</h2>
+            <p class="card-text" style="font-family: 'Andika New Basic', sans-serif;">{{ object.entry_text}}</p>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on {{ object.entry_date }} by
+            <a href="#">{{ object.entry_author }}</a>
+          </div>
+        </div>
+        <!-- pagination  -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Previous Page</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">&rarr; Next Page</a>
+          </li>
+        </ul>
+
+      </div>
+{% endblock %}

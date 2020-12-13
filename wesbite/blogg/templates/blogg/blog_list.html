@@ -1,0 +1,31 @@
+{% extends 'blogg/base.html' %}
+
+{% block content %}
+        
+
+ <!-- Blog Entries Column -->
+    <div class="col-md-8">
+    	<ul class="list-group list-group-flush">
+    		{% for entry in entries %}
+    			<li class="list-group-item"><a href="{% url 'list-detail' entry.pk %}">{{entry.entry_title}}</a></li>
+  			{% endfor %}
+		</ul>
+		<!-- pagination  -->
+        {% if is_paginated %}
+        <ul class="pagination justify-content-center mb-4">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}">&larr; Previous Page</a>
+          </li>
+          {% endif %}
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.next_page_number}}">&rarr; Next Page</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+	</div>
+
+    
+{% endblock %}

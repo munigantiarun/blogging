@@ -1,0 +1,32 @@
+{% extends 'blogg/base.html' %}
+{% block content %}
+          <style type="text/css">
+            .card-title{
+              style="font-family: 'Raleway', sans-serif;
+              font-weight: 600; 
+              line-height: 1.2;" 
+            }
+
+            .card-text{
+              font-family: 'Andika New Basic', sans-serif;
+            }
+          </style>
+ <!-- Blog Entries Column -->
+    <div class="col-md-8">
+          
+        <!-- Blog Post -->
+        <div class="card mb-4 mt-4">
+          <div class="card-header"> 
+            Create An Account
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+              {{form.as_p}}
+              <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+          </div>
+        </div>
+
+    </div>  
+{% endblock %}
